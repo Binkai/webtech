@@ -1,0 +1,42 @@
+h1{
+	font-size: 3.5em;
+	text-align:center;
+	background-color: purple;
+}
+
+h2 {
+	
+	font-size: 2 em;
+	text-align: right;
+	background-color: gray;
+}
+
+body {
+	
+	font-family: times;
+	background-color: pink;
+}
+
+#absatz1{
+	
+	text-color: red;
+	background-color:grey;
+	
+}
+img {
+	
+	width=25%;
+	align= right;
+}
+
+.t{
+	
+	background-color:light-pink;
+	text-align:center;
+	
+}
+.t1{
+	
+	background-color: orange;
+	text-align:right;
+}
