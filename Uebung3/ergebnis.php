@@ -24,4 +24,4 @@ unset($_SESSION['ergebnis']);
 unset($_SESSION['pcsieg']);
 unset($_SESSION['usersieg']);
 ?>
-<a href="radiobutt.php"> Noch eine Runde?</a>
+<a href="index.php"> Noch eine Runde?</a>
