@@ -2,7 +2,7 @@
 
 Webtechnologien Uebungen
 Kai Kuhfeld  
-Für Veränderungen immer eigen erstellten Branch arbeiten!  
+Für Veränderungen immer im eigen erstellten Branch arbeiten und Pull Requests erstellen.  
 
 to-do:  
 Finish Uebung2 (Verlinkung per http:\\ + neue Websites und allg. Verlinkung)  
