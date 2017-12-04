@@ -23,7 +23,7 @@ class erstertest implements database {
     function __construct($dbtyp, $host, $namedb, $user, $password) {
         $this->dsn = $dbtyp .
                 ':host=' . $host .
-                ':dbname=' . $namedb;
+                ';dbname=' . $namedb;
         $this->user = $user;
         $this->password = $password;
     }
@@ -35,12 +35,14 @@ class erstertest implements database {
 
     public function delete($name, $string) {
         //TO-DO
-        echo $name . $string . "noch nix";
+        $id = $this->query($name,$string)['id'];
+        $deletequery = "DELETE FROM tab WHERE id = '$id'";
+        $this->conn->exec($deletequery);
     }
 
     public function insert($record) {
         foreach($record as $rec){
-            $insert = "INSERT INTO table(produkt,preis) VALUES ('${rec['produkt']}', '${rec['preis']})";
+            $insert = "INSERT INTO tab(produkt,preis) VALUES ('${rec['produkt']}', ${rec['preis']})";
             $rtn = $this->conn->exec($insert);
             if($rtn===false) {
                 $error = $this->conn->errorInfo();
@@ -51,6 +53,7 @@ class erstertest implements database {
 
     public function open() {
         $this->conn = new PDO($this->dsn, $this->user, $this->password);
+$this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
         echo "Verbindung aufgebaut.";
     }
 
@@ -62,15 +65,18 @@ class erstertest implements database {
 //        $query->execute();
 //        echo $query->fetch();
         ## ohne Prep
-        $query = "SELECT * FROM table WHERE " . $name . "='".$string."'";
+        $query = "SELECT * FROM tab WHERE " . $name . "='".$string."'";
         $data = $this->conn->query($query);
-        echo $data->fetch();
+
+        return $data->fetch();
+        
     }
 
 }
 
 $db1 = new erstertest("mysql","localhost","gruppe","root","");
 $db1->open();
-$db1->query("apfel","katze");
+$val[] =  array('produkt' => 'lol', 'preis'=> 5.4);
+$db1->delete("id", 5);
 ?>
 
