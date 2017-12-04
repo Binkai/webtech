@@ -1,0 +1,1 @@
+a:5:{i:0;a:3:{s:2:"id";i:1;s:7:"produkt";s:5:"Milch";s:5:"preis";d:5.5;}i:1;a:3:{s:2:"id";i:2;s:7:"produkt";s:4:"Brot";s:5:"preis";i:4;}i:2;a:3:{s:2:"id";i:3;s:7:"produkt";s:7:"Joghurt";s:5:"preis";d:3.2;}i:3;a:3:{s:2:"id";i:4;s:7:"produkt";s:3:"Eis";s:5:"preis";d:0.9;}i:4;a:3:{s:2:"id";i:5;s:7:"produkt";s:6:"Kaffee";s:5:"preis";d:3.2;}}

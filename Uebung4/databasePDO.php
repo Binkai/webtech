@@ -1,19 +1,7 @@
 <?php
+require "database.php";
 
-interface database {
-
-    public function open();
-
-    public function insert($record);
-
-    public function query($name, $string);
-
-    public function delete($name, $string);
-
-    public function close();
-}
-
-class erstertest implements database {
+class databasePDO implements database {
 
     private $conn;
     private $user;
@@ -74,7 +62,7 @@ $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
 
 }
 
-$db1 = new erstertest("mysql","localhost","gruppe","root","");
+$db1 = new databasePDO("mysql","localhost","gruppe","root","");
 $db1->open();
 $val[] =  array('produkt' => 'lol', 'preis'=> 5.4);
 $db1->delete("id", 5);
