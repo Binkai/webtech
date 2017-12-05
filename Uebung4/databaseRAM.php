@@ -11,13 +11,13 @@
  *
  * @author Kai
  */
-require 'database.php';
+require_once 'database.php';
 
 class databaseRAM implements database {
 
     private $dbram;
 
-    public function __constructor($dbtyp, $host, $namedb, $user, $password) {
+    public function __constructor() {
         if(!file_exists('db.txt')){
         $this->dbram[] = array('id' => 1, 'produkt' => 'Milch', 'preis' => 5.50);
         $this->dbram[] = array('id' => 2, 'produkt' => 'Brot', 'preis' => 4);
@@ -33,21 +33,38 @@ class databaseRAM implements database {
     }
 
     public function delete($name, $string) {
-        echo "lol";
+        $index = 0;
+       foreach($this->dbram as $row) {
+           if($row[$name] == $string) {
+               unset($this->dbram[$index]);
+               break;
+           }
+           $index++;
+       }
+        
     }
 
     public function insert($record) {
-        echo "todo";
+        $this->dbram[] = $record;
     }
 
     public function open() {
+        if(file_exists('db.txt')){
         $this->dbram = unserialize(file_get_contents('db.txt'));
+        }
+        else { 
+            echo "Achtung db.txt nicht gefunden! Bitte über die Funktion close() abspeichern.";
+        }
     }
 
     public function query($name, $string) {
-        echo "todo";
+        foreach($this->dbram as $row) {
+            if($row[$name] == $string) {
+                return $row;
+            }
+                
+        }
     }
 
 }
-
 ?>

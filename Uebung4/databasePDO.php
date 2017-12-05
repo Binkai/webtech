@@ -1,5 +1,5 @@
 <?php
-require "database.php";
+require_once "database.php";
 
 class databasePDO implements database {
 
@@ -62,9 +62,9 @@ $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
 
 }
 
-$db1 = new databasePDO("mysql","localhost","gruppe","root","");
-$db1->open();
-$val[] =  array('produkt' => 'lol', 'preis'=> 5.4);
-$db1->delete("id", 5);
+//$db1 = new databasePDO("mysql","localhost","gruppe","root","");
+//$db1->open();
+//$val[] =  array('produkt' => 'lol', 'preis'=> 5.4);
+//$db1->delete("id", 5);
 ?>
 
