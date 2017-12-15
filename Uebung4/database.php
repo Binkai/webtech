@@ -1,13 +1,11 @@
 <?php
 
-
 /**
  *
  * @author Kai
  */
-
 interface database {
-
+    
     public function open();
 
     public function insert($record);
@@ -18,4 +16,5 @@ interface database {
 
     public function close();
 }
+
 ?>

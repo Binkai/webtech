@@ -1,4 +1,5 @@
 <?php
+
 require_once "database.php";
 
 class databasePDO implements database {
@@ -18,31 +19,30 @@ class databasePDO implements database {
 
     public function close() {
         $this->conn = null;
-        echo "Verbindung geschlossen";
+        echo "Verbindung geschlossen" . PHP_EOL;
     }
 
     public function delete($name, $string) {
         //TO-DO
-        $id = $this->query($name,$string)['id'];
+        $id = $this->query($name, $string)['id'];
         $deletequery = "DELETE FROM tab WHERE id = '$id'";
         $this->conn->exec($deletequery);
     }
 
     public function insert($record) {
-        foreach($record as $rec){
-            $insert = "INSERT INTO tab(produkt,preis) VALUES ('${rec['produkt']}', ${rec['preis']})";
-            $rtn = $this->conn->exec($insert);
-            if($rtn===false) {
-                $error = $this->conn->errorInfo();
-                echo 'DB ERROR: #'.$error[1]." ".$error[2].PHP_E0L;                
-            }
+        $insert = "INSERT INTO tab(id,produkt,preis) VALUES (${record['id']}, '${record['produkt']}', ${record['preis']})";
+        $rtn = $this->conn->exec($insert);
+        if ($rtn === false) {
+            $error = $this->conn->errorInfo();
+            echo 'DB ERROR: #' . $error[1] . " " . $error[2] . PHP_EOL;
+            ;
         }
     }
 
     public function open() {
         $this->conn = new PDO($this->dsn, $this->user, $this->password);
-$this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
-        echo "Verbindung aufgebaut.";
+        $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        echo "Verbindung aufgebaut." . PHP_EOL;
     }
 
     public function query($name, $string) {
@@ -53,11 +53,10 @@ $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
 //        $query->execute();
 //        echo $query->fetch();
         ## ohne Prep
-        $query = "SELECT * FROM tab WHERE " . $name . "='".$string."'";
+        $query = "SELECT * FROM tab WHERE " . $name . "='" . $string . "'";
         $data = $this->conn->query($query);
 
         return $data->fetch();
-        
     }
 
 }
