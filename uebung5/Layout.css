@@ -1,0 +1,31 @@
+
+/* 
+    Created on : 16.01.2018, 11:58:29
+    Author     : Hristo
+*/
+
+#formular1{
+    background-color: greenyellow;
+    border: 4px solid green;
+    height: 120px;
+    width: 510px;
+    margin-bottom: 20px;
+
+}
+body{
+    background-color: whitesmoke;
+}
+#u1{
+    font-style: italic;
+}
+#anzeige{
+    background-color: white;
+    border: 4px solid red;
+    position: relative;
+    height: 360px;
+        
+}
+#hehe{
+    font-weight: bold;
+    font-style: italic;
+}

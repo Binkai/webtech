@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Aufgabe 5 - Formular prüfen/ Regular expressions</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="Layout.css">
+    </head> 
+    <body>
+        <h1 id="u1"> Ein Formular mittels JavaScript!</h1>
+        <div id="formular1">
+           <div id="namen">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Max Mustermann">
+           </div>
+           <div id="ort">
+            <label for="plz"> Postleitzahl: </label>
+            <input type="text" placeholder="12345" id="plz">
+            <label for="stadt"> Stadt: </label>
+            <input type="text" placeholder="Berlin" id="stadt">
+           </div>
+           <div id="haus">
+            <label for="straße"> Straße: </label>
+            <input type="text" id="straße" placeholder="Berliner Straße">
+            <label for="hausnummer"> Hausnummer: </label>
+            <input type="text" id="hausnummer" placeholder="62A">
+           </div>
+           <div id="geld">
+            <label for="iban"> IBAN: </label>
+            <input type="text" id="iban" placeholder="DE0123456789123456789123">
+            <label for="geldbetrag"> Geldbetrag: </label>
+            <input type="text" id="geldbetrag" placeholder="126,89">
+           </div>
+            <input type="button" onclick="hauptFunction();" value="Formular testen">
+        </div>
+        <div id="anzeige">
+            <p id="hehe">Achtung nach dem Absenden des Formulars werden hier alle Meldungen aufgelistet!</p>
+            <div id="deinnamenhabichgesagt"></div>
+            <p id="postcode"></p>
+            <p id="city"></p>
+            <p id="street"></p>
+            <p id="number"></p>
+            <p id="ban"></p>
+            <p id="money"></p>
+        </div>
+          <script src="RegularExCode.js">
+          </script>
+    </body>
+  
+</html>
